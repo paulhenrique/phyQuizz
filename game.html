@@ -1,0 +1,73 @@
+<html>
+
+<head>
+    <title>phyQuizz - Perguntas de física!</title>
+    <meta charset="utf-8">
+    <!-- Compiled and minified CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <nav class="deep-orange accent-4" role="navigation">
+        <div class="nav-wrapper"><a id="questao_number" href="#" class="brand-logo">Questão</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">phyQuizz</a></li>
+            </ul>
+
+            <ul id="nav-mobile" class="sidenav">
+                <br><br>
+                <li><a href="index.html"> <i class="material-icons left">home</i> Início</a></li>
+                <li><a href="novo_jogo.html"> <i class="material-icons left">videogame_asset</i> Novo jogo</a></li>
+                <li><a href="novo_jogo.html"> <i class="material-icons left">videogame_asset</i> Continuar</a></li>
+                <li><a href="pontuacao.html"><i class="material-icons left">inbox</i> Pontuação</a></li>
+                <li><a href="historico.html"><i class="material-icons left">history</i> Histórico</a></li>
+                <div class="divider"></div>
+                <li><a href="historico.html"><i class="material-icons left">settings</i> Configurações</a></li>
+                <li><a href="historico.html"><i class="material-icons left">refresh</i> Resetar Pontuação</a></li>
+                <li><a href="historico.html"><i class="material-icons left">favorite</i> Sobre</a></li>
+                <li><a href="historico.html"><i class="material-icons left">share</i> Compartilhar</a></li>
+                <li><a href="https://github.com/paulhenrique/phyQuizz"><i class="material-icons left">code</i> Ver o
+                        código</a>
+                </li>
+                <li><a href="https://github.com/paulhenrique/phyQuizz"><i
+                            class="material-icons left">add_to_home_screen</i>
+                        Adicionar a tela inicial</a></li>
+            </ul>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+    <div class="section no-pad-bot">
+        <div class="container">
+            <h4 class="header center red-text">Questão 1/10</h4>
+            <div class="row center">
+                <div>
+                    <p class="question  ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur error similique beatae obcaecati praesentium repudiandae. Qui sit eveniet optio officiis quia, cupiditate, rerum quaerat quibusdam corporis laborum soluta reprehenderit veritatis.</p>
+                </div>
+            </div>
+            <div class="row center">
+                <div class="col s6">
+                    <a href="#" id="retroceder_questao" class="btn waves-effect waves-light red"><i
+                            class="material-icons left">videogame_asset</i>Voltar</a>
+                </div>
+                <div class="col s6">
+                    <a href="#" id="avancar_questao" class="btn waves-effect waves-light red"><i
+                            class="material-icons right">videogame_asset</i>Próxima Pergunta</a>
+                </div>
+            </div>
+            <br><br>
+        </div>
+    </div>
+</body>
+<!-- Compiled and minified JavaScript -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="webroot/js/questionario.js"></script>
+<script>
+    $('.sidenav').sidenav();
+</script>
+
+</html>
