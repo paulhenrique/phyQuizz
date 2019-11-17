@@ -1,0 +1,15 @@
+{
+  "short_name": "phyQuizz",
+  "name": "Quiz Física",
+  "icons": [
+    {
+      "src": "webroot/img/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "index.html",
+  "display": "standalone",
+  "theme_color": "white",
+  "background_color": "white"
+}
