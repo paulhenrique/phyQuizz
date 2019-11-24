@@ -4,7 +4,7 @@ nav{
     min-height: 60px;
 }
 
-#question_text {
+#question_text, .resposta-text{
     text-align: justify;
 }
 .fixed-bottom{
@@ -18,4 +18,9 @@ nav{
 }
 .no-pad-bot{
     min-height:150vh;
+}
+@media only screen and (min-width: 993px){
+    nav a.sidenav-trigger {
+        display: block;
+    }
 }

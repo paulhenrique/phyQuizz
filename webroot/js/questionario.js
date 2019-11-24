@@ -3,6 +3,8 @@ class Questionario {
     questao_numero;
     questoes;
     alternativas;
+    acertos;
+    quantidade_de_acertos;
     constructor() {
 
         this.username = localStorage.getItem("username");
@@ -24,26 +26,36 @@ class Questionario {
             localStorage.setItem("questao_numero", 0);
             this.questao_numero = localStorage.getItem("questao_numero");
         }
+        if (localStorage.getItem('acertos')) {
+            this.acertos = JSON.parse(localStorage.getItem('acertos'));
+            let qnt_acertos = 0;
+            $.each(this.acertos, function (i, c) {
+                if (c == 1) {
+                    qnt_acertos++;
+                }
+            });
+            this.quantidade_de_acertos = qnt_acertos;
+        }
     };
 
     formar_perguntas() {
-        $.getJSON('/phyQuizz/questions.json', function(data) {
-            data.sort(function() {
+        $.getJSON('/phyQuizz/questions.json', function (data) {
+            data.sort(function () {
                 return .5 - Math.random();
             });
-            this.questoes = data.slice(0, 20);
+            this.questoes = data.slice(0, 10);
             localStorage.setItem('questoes', JSON.stringify(this.questoes));
 
             //definindo variável global de questões
             this.questoes = JSON.parse(window.localStorage.getItem('questoes'));
         });
         let questoes = this.questoes;
-        $.each(questoes, function(indice_questao, conteudo) {
+        $.each(questoes, function (indice_questao, conteudo) {
             let questao_atual = conteudo;
             let alternativas = questao_atual.erradas;
             alternativas.push(questao_atual.correta);
 
-            alternativas.sort(function() {
+            alternativas.sort(function () {
                 return .5 - Math.random();
             });
 
@@ -52,7 +64,7 @@ class Questionario {
                 .addClass('hide')
                 .addClass('form_alternativas');
 
-            $.each(alternativas, function(indice, conteudo) {
+            $.each(alternativas, function (indice, conteudo) {
                 let id_alternativa = 'alternativas_' + parseInt(indice) + '_questao_' + parseInt(indice_questao);
                 var div = $("<p/>");
                 var label = $("<label/>");
@@ -108,7 +120,7 @@ class Questionario {
     };
 
     avancar_questao() {
-        if (this.questao_numero == 19) {
+        if (this.questao_numero == 9) {
             this.questao_numero = 0;
         } else {
             this.questao_numero++;
@@ -118,7 +130,7 @@ class Questionario {
     };
     retroceder_questao() {
         if (this.questao_numero == 0) {
-            this.questao_numero = 19;
+            this.questao_numero = 9;
         } else {
             this.questao_numero--;
         }
@@ -128,27 +140,38 @@ class Questionario {
 
     encerrar_game() {
 
+        let acertos = [];
 
-
+        $.each(this.questoes, function (indice, conteudo) {
+            // console.log(indice, conteudo);
+            //let alternativas_container_label = $('#form_alternatives_question_' + parseInt(indice) + '>p>label');
+            let alternativas_container_label = $('#form_alternatives_question_' + parseInt(indice) + '>p>label>input');
+            let alternativa_selecionada = 'no_selected';
+            $.each(alternativas_container_label, function () {
+                if (this.checked) {
+                    alternativa_selecionada = this.value;
+                }
+            });
+            if (alternativa_selecionada == this.correta) {
+                acertos.push(1);
+            } else {
+                acertos.push(0);
+            }
+        });
+        localStorage.setItem('acertos', JSON.stringify(acertos));
+        location.href = 'resultado.html';
+    }
+    apagar_jogo() {
         localStorage.setItem("questao_numero", 0);
         localStorage.removeItem("questoes");
         localStorage.removeItem("alternativas");
+        location.href = 'index.html';
+    }
+
+    configurar_usuario() {
+        if (localStorage.getItem('username')) {
+            document.getElementById("name").innerHTML = localStorage.getItem('username');
+        }
     }
 };
-$(window).on("load", function() {
-    var q = new Questionario();
-    q.atualizar_visualizacao();
-});
-$("#avancar_questao").on("click", function() {
-    var q = new Questionario();
-    q.avancar_questao();
-});
 
-$("#retroceder_questao").on("click", function() {
-    var q = new Questionario();
-    q.retroceder_questao();
-});
-$("#encerrar_game").on("click", function() {
-    var q = new Questionario();
-    q.encerrar_game();
-});

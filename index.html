@@ -20,25 +20,29 @@
 <body>
   <div class="navbar-fixed">
     <nav class="purple darken-4">
-      <div class="nav-wrapper"><a id="logo-container" href="#" class="brand-logo">phyQuizz</a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="#">Novo Jogo</a></li>
-        </ul>
+      <div class="nav-wrapper">
         <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       </div>
     </nav>
   </div>
   <ul id="nav-mobile" class="sidenav">
-    <li><a class="black-text"> <i class="material-icons left">question_answer</i> phyQuizz</a></li>
-    <div class="divider"></div>
+    <li>
+      <div class="user-view">
+        <div class="background purple darken-4">
+          <!-- <img src="webroot/img/icon.png"> -->
+        </div>
+        <a href="#user"><img class="circle" src="webroot/img/icon.png"></a>
+        <a href="#name"><span class="white-text name" id="name"><b>Isaac Newton</b></span></a>
+        <a href="#email"><span class="white-text">Bem vindo!</span></a>
+      </div>
+    </li>
     <li><a href="index.html"> <i class="material-icons left">home</i> Início</a></li>
-    <li><a href="novo_jogo.html"> <i class="material-icons left">videogame_asset</i> Novo jogo</a></li>
-    <li><a href="game.html"> <i class="material-icons left">videogame_asset</i> Continuar</a></li>
-    <li><a href="pontuacao.html"><i class="material-icons left">inbox</i> Pontuação</a></li>
+    <li><a href="novo-jogo.html"> <i class="material-icons left">videogame_asset</i> Novo jogo</a></li>
+    <li><a href="resultado.html"><i class="material-icons left">inbox</i> Pontuação</a></li>
     <li><a href="historico.html"><i class="material-icons left">history</i> Histórico</a></li>
-    <div class="divider"></div>
+    <br>
     <li><a href="historico.html"><i class="material-icons left">settings</i> Configurações</a></li>
-    <li><a href="historico.html"><i class="material-icons left">refresh</i> Resetar Pontuação</a></li>
+    <li><a href="#" id="resetar_jogo"><i class="material-icons left">refresh</i> Resetar Jogo</a></li>
     <li><a href="historico.html"><i class="material-icons left">favorite</i> Sobre</a></li>
     <li><a href="historico.html"><i class="material-icons left">share</i> Compartilhar</a></li>
     <li><a href="https://github.com/paulhenrique/phyQuizz"><i class="material-icons left">code</i> Ver o
@@ -56,10 +60,10 @@
         </h5>
       </div>
       <br>
-        <center>
-            <a href="novo-jogo.html" class="btn-large waves-effect waves-light purple darken-4"><i
-              class="material-icons left">videogame_asset</i>Novo Jogo</a>
-        </center>
+      <center>
+        <a href="novo-jogo.html" class="btn-large waves-effect waves-light purple darken-4"><i
+            class="material-icons left">videogame_asset</i>Novo Jogo</a>
+      </center>
       <br><br>
 
     </div>
@@ -68,8 +72,17 @@
 <!-- Compiled and minified JavaScript -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="webroot/js/questionario.js"></script>
 <script>
   $('.sidenav').sidenav();
+
+  $("#resetar_jogo").on('click', function () {
+    var q = new Questionario();
+    console.log('click');
+    q.apagar_jogo();
+  });
+  var q = new Questionario();
+  q.configurar_usuario();
 </script>
 
 </html>

@@ -22,7 +22,7 @@
     <div class="navbar-fixed">
         <nav class="purple darken-4">
             <div class="nav-wrapper">
-                <a id="questao_number" href="#" class="brand-logo">Questão</a>
+                <a href="#" class="brand-logo">Resultado</a>
                 <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             </div>
         </nav>
@@ -57,28 +57,15 @@
         <div class="container">
             <div class="row center">
                 <div>
-                    <p id="question_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur error
-                        similique beatae obcaecati praesentium repudiandae. Qui sit eveniet optio officiis quia,
-                        cupiditate, rerum quaerat quibusdam corporis laborum soluta reprehenderit veritatis.</p>
-                    <div class="col s12 left-align" id="question_alternat"></div>
+                    <br> <br>
+                    <img src="webroot/img/medal.png" width="90" alt="">
+                    <br> <br>
+                    <h3>Você finalizou o jogo!</h3>
+                    <p>Você alcançou um total de <span id="acertos">0</span> acertos</p>
                 </div>
             </div>
-            <div class="fixed-bottom">
-                <div class="row center">
-                    <div class="col s6">
-                        <a href="#" id="retroceder_questao" class=""><i
-                                class="material-icons left">arrow_back</i>Anterior</a>
-                    </div>
-                    <div class="col s6">
-                        <a href="#" id="avancar_questao" class=""><i
-                                class="material-icons right">arrow_forward</i>Próxima</a>
-                    </div>
-                </div>
-                <div class="row center">
-                    <a href="#" id="encerrar_game" class="btn waves-effect waves-light green darken-3 center"><i
-                            class="material-icons left">videogame_asset</i>Finalizar Jogo</a>
+            <div class="row" id="respostas">
 
-                </div>
             </div>
         </div>
     </div>
@@ -89,29 +76,31 @@
 <script src="webroot/js/questionario.js"></script>
 <script>
     $('.sidenav').sidenav();
-    $(window).on("load", function () {
-        var q = new Questionario();
-        q.atualizar_visualizacao();
-    });
-    $("#avancar_questao").on("click", function () {
-        var q = new Questionario();
-        q.avancar_questao();
-    });
+    q = new Questionario;
+    document.getElementById("acertos").innerHTML = String(q.quantidade_de_acertos);
+    $.each(q.acertos, function (i, c) {
+        let div = $("<div>");
+        let h1 = $("<h5>");
+        let numero_questao = parseInt(i) + 1;
+        let resposta_correta_string = String(q.questoes[i].correta);
+        let p = $("<p>").addClass('resposta-text');
+        let cor = (c == 0) ? "red" : "green";
+        let status = (c == 0) ? "Você errou" : "Você acertou";
+        let span = $("<span>").addClass(String(cor) + "-text");
+        let resposta_correta = $("<p>");
 
-    $("#retroceder_questao").on("click", function () {
-        var q = new Questionario();
-        q.retroceder_questao();
+        p.append(q.questoes[i].questao);
+        resposta_correta.append("A resposta correta era: ");
+        resposta_correta.append(resposta_correta_string);
+        h1.append("Questão " + numero_questao);
+        span.append(" - " + String(status));
+        h1.append(span);
+        div.append(h1);
+        div.append(p);
+        div.append(resposta_correta);
+
+        $('#respostas').append(div);
     });
-    $("#encerrar_game").on("click", function () {
-        var q = new Questionario();
-        q.encerrar_game();
-    });
-    $("#resetar_jogo").on('click', function () {
-        var q = new Questionario();
-        q.apagar_jogo();
-    });
-    var q = new Questionario();
-    q.configurar_usuario();
 </script>
 
 </html>
