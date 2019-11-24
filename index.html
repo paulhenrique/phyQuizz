@@ -6,56 +6,60 @@
   <!-- Compiled and minified CSS -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  
+
   <meta name="mobile-web-app-capable" content="yes">
-	<link rel="icon" sizes="200x200" href="webroot/img/logo.jpg">
-  <meta name="theme-color" content="red">
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link rel="icon" sizes="200x200" href="webroot/img/icon.png">
+  <meta name="theme-color" content="#4a148c">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link rel="manifest" href="manifest.json">
-  
+  <link rel="stylesheet" href="webroot/css/main.css">
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
 <body>
-  <nav class="deep-orange accent-4" role="navigation">
-    <div class="nav-wrapper"><a id="logo-container" href="#" class="brand-logo">phyQuizz</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Novo Jogo</a></li>
-      </ul>
-      <ul id="nav-mobile" class="sidenav">
-        <li><a class="black-text"> <i class="material-icons left">question_answer</i> phyQuizz</a></li>
-        <div class="divider"></div>
-        <li><a href="index.html"> <i class="material-icons left">home</i> Início</a></li>
-        <li><a href="novo_jogo.html"> <i class="material-icons left">videogame_asset</i> Novo jogo</a></li>
-        <li><a href="novo_jogo.html"> <i class="material-icons left">videogame_asset</i> Continuar</a></li>
-        <li><a href="pontuacao.html"><i class="material-icons left">inbox</i> Pontuação</a></li>
-        <li><a href="historico.html"><i class="material-icons left">history</i> Histórico</a></li>
-        <div class="divider"></div>
-        <li><a href="historico.html"><i class="material-icons left">settings</i> Configurações</a></li>
-        <li><a href="historico.html"><i class="material-icons left">refresh</i> Resetar Pontuação</a></li>
-        <li><a href="historico.html"><i class="material-icons left">favorite</i> Sobre</a></li>
-        <li><a href="historico.html"><i class="material-icons left">share</i> Compartilhar</a></li>
-        <li><a href="https://github.com/paulhenrique/phyQuizz"><i class="material-icons left">code</i> Ver o código</a>
-        </li>
-        <li><a href="https://github.com/paulhenrique/phyQuizz"><i class="material-icons left">add_to_home_screen</i>
-            Adicionar a tela inicial</a></li>
-      </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
-  <div class="section no-pad-bot" id="index-banner">
+  <div class="navbar-fixed">
+    <nav class="purple darken-4">
+      <div class="nav-wrapper"><a id="logo-container" href="#" class="brand-logo">phyQuizz</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#">Novo Jogo</a></li>
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+  </div>
+  <ul id="nav-mobile" class="sidenav">
+    <li><a class="black-text"> <i class="material-icons left">question_answer</i> phyQuizz</a></li>
+    <div class="divider"></div>
+    <li><a href="index.html"> <i class="material-icons left">home</i> Início</a></li>
+    <li><a href="novo_jogo.html"> <i class="material-icons left">videogame_asset</i> Novo jogo</a></li>
+    <li><a href="game.html"> <i class="material-icons left">videogame_asset</i> Continuar</a></li>
+    <li><a href="pontuacao.html"><i class="material-icons left">inbox</i> Pontuação</a></li>
+    <li><a href="historico.html"><i class="material-icons left">history</i> Histórico</a></li>
+    <div class="divider"></div>
+    <li><a href="historico.html"><i class="material-icons left">settings</i> Configurações</a></li>
+    <li><a href="historico.html"><i class="material-icons left">refresh</i> Resetar Pontuação</a></li>
+    <li><a href="historico.html"><i class="material-icons left">favorite</i> Sobre</a></li>
+    <li><a href="historico.html"><i class="material-icons left">share</i> Compartilhar</a></li>
+    <li><a href="https://github.com/paulhenrique/phyQuizz"><i class="material-icons left">code</i> Ver o
+        código</a>
+    </li>
+    <li><a href="https://github.com/paulhenrique/phyQuizz"><i class="material-icons left">add_to_home_screen</i>
+        Adicionar a tela inicial</a></li>
+  </ul>
+  <div class="section">
     <div class="container">
       <br><br>
-      <h1 class="header center red-text">phyQuizz</h1>
+      <h1 class="header center purple-text text-darken-4">phyQuizz</h1>
       <div class="row center">
         <h5 class="header col s12 light">Responda perguntas e se prepare para os vestibulares mais difíceis do país!
         </h5>
       </div>
-      <div class="row center">
-        <a href="novo-jogo.html" id="download-button" class="btn-large waves-effect waves-light red"><i
-            class="material-icons left">videogame_asset</i>Novo Jogo</a>
-      </div>
+      <br>
+        <center>
+            <a href="novo-jogo.html" class="btn-large waves-effect waves-light purple darken-4"><i
+              class="material-icons left">videogame_asset</i>Novo Jogo</a>
+        </center>
       <br><br>
 
     </div>
