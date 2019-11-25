@@ -41,7 +41,6 @@
         <li><a href="index.html"> <i class="material-icons left">home</i> Início</a></li>
         <li><a href="novo-jogo.html"> <i class="material-icons left">videogame_asset</i> Novo jogo</a></li>
         <li><a href="resultado.html"><i class="material-icons left">inbox</i> Pontuação</a></li>
-        <li><a href="historico.html"><i class="material-icons left">history</i> Histórico</a></li>
         <br>
         <li><a href="configuracoes.html"><i class="material-icons left">settings</i> Configurações</a></li>
         <li><a href="#" id="resetar_jogo"><i class="material-icons left">refresh</i> Resetar Jogo</a></li>
@@ -81,13 +80,14 @@
     q = new Questionario;
     document.getElementById("acertos").innerHTML = String(q.quantidade_de_acertos);
     $.each(q.acertos, function (i, c) {
+
         let div = $("<div>");
         let h1 = $("<h5>");
         let numero_questao = parseInt(i) + 1;
         let resposta_correta_string = String(q.questoes[i].correta);
         let p = $("<p>").addClass('resposta-text');
         let cor = (c == 0) ? "red" : "green";
-        let status = (c == 0) ? "Você errou" : "Você acertou";
+        let status = (c == 0) ? "<i class='material-icons right'>error</i>" : "<i class='material-icons right'>check</i>";
         let span = $("<span>").addClass(String(cor) + "-text");
         let resposta_correta = $("<p>");
 
@@ -95,7 +95,7 @@
         resposta_correta.append("A resposta correta era: ");
         resposta_correta.append(resposta_correta_string);
         h1.append("Questão " + numero_questao);
-        span.append(" - " + String(status));
+        span.append(String(status));
         h1.append(span);
         div.append(h1);
         div.append(p);

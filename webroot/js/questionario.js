@@ -99,6 +99,8 @@ class Questionario {
 
         localStorage.setItem('questoes', JSON.stringify(this.questoes));
         this.questoes = JSON.parse(window.localStorage.getItem('questoes'));
+
+        location.reload();
     };
     atualizar_alternativas() {
         localStorage.setItem('alternativas', String(document.getElementById("question_alternat").innerHTML));
@@ -116,7 +118,7 @@ class Questionario {
         $('.form_alternativas').removeClass('hide');
         $('.form_alternativas').addClass('hide');
         $('#form_alternatives_question_' + parseInt(this.questao_numero)).removeClass('hide');
-        // this.atualizar_alternativas();
+
     };
 
     avancar_questao() {
@@ -128,6 +130,7 @@ class Questionario {
         localStorage.setItem("questao_numero", this.questao_numero);
         this.atualizar_visualizacao();
     };
+
     retroceder_questao() {
         if (this.questao_numero == 0) {
             this.questao_numero = 9;
@@ -143,8 +146,6 @@ class Questionario {
         let acertos = [];
 
         $.each(this.questoes, function (indice, conteudo) {
-            // console.log(indice, conteudo);
-            //let alternativas_container_label = $('#form_alternatives_question_' + parseInt(indice) + '>p>label');
             let alternativas_container_label = $('#form_alternatives_question_' + parseInt(indice) + '>p>label>input');
             let alternativa_selecionada = 'no_selected';
             $.each(alternativas_container_label, function () {
@@ -161,6 +162,7 @@ class Questionario {
         localStorage.setItem('acertos', JSON.stringify(acertos));
         location.href = 'resultado.html';
     }
+    
     apagar_jogo() {
         localStorage.setItem("questao_numero", 0);
         localStorage.removeItem("questoes");
@@ -173,5 +175,6 @@ class Questionario {
             document.getElementById("name").innerHTML = localStorage.getItem('username');
         }
     }
+    
 };
 
