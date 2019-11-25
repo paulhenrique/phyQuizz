@@ -74,6 +74,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="webroot/js/questionario.js"></script>
+<script src="sw.js"></script>
 <script>
     $('.sidenav').sidenav();
     q = new Questionario;
@@ -101,6 +102,17 @@
 
         $('#respostas').append(div);
     });
+
+
+    if ('serviceWorker' in navigator) {
+    console.log("Will the service worker register?");
+    navigator.serviceWorker.register('service-worker.js')
+      .then(function(reg){
+        console.log("Yes, it did.");
+     }).catch(function(err) {
+        console.log("No it didn't. This happened:", err)
+    });
+ }
 </script>
 
 </html>
