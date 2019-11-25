@@ -1,0 +1,23 @@
+CACHE MANIFEST
+#v1 - 2019-11-25
+#autor: Paulo Henrique V.
+
+index.html
+game.html
+configuracoes.html
+novo-jogo.html
+resultado.html
+questions.json
+install.js
+manifest.json
+sw.js
+webroot/css/main.css
+webroot/img/icon.png
+webroot/img/medal.png
+webroot/js/formularios.js
+webroot/js/include_html.js
+webroot/js/questionario.js
+webroot/js/share.js
+
+
+

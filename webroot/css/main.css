@@ -1,10 +1,10 @@
 /* purple darken-4  ===    #4a148c  */
-
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
 nav{
     min-height: 60px;
 }
 
-#question_text, .resposta-text{
+#question_text, .resposta-text, .justify-align{
     text-align: justify;
 }
 .fixed-bottom{
@@ -24,3 +24,6 @@ nav{
         display: block;
     }
 }
+*{
+    font-family: 'Roboto Mono', monospace;
+  }

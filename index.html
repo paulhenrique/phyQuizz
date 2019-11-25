@@ -13,12 +13,13 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="webroot/css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
 <body>
-  <div class="navbar-fixed">
+  <div class="navbar-fixed hide-on-med-and-up">
     <nav class="purple darken-4">
       <div class="nav-wrapper">
         <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -27,14 +28,14 @@
   </div>
   <ul id="nav-mobile" class="sidenav">
     <li>
-        <div class="user-view">
-            <div class="background purple darken-4">
-                <!-- <img src="webroot/img/icon.png"> -->
-            </div>
-            <a href="#user"><img class="circle" src="webroot/img/icon.png"></a>
-            <a href="#name"><span class="white-text name" id="name"><b>Isaac Newton</b></span></a>
-            <a href="#email"><span class="white-text">Bem vindo!</span></a>
+      <div class="user-view">
+        <div class="background purple darken-4">
+          <!-- <img src="webroot/img/icon.png"> -->
         </div>
+        <a href="#user"><img class="circle" src="webroot/img/icon.png"></a>
+        <a href="#name"><span class="white-text name" id="name"><b>Isaac Newton</b></span></a>
+        <a href="#email"><span class="white-text">Bem vindo!</span></a>
+      </div>
     </li>
     <li><a href="index.html"> <i class="material-icons left">home</i> Início</a></li>
     <li><a href="novo-jogo.html"> <i class="material-icons left">videogame_asset</i> Novo jogo</a></li>
@@ -46,16 +47,16 @@
     <li><a href="sobre.html"><i class="material-icons left">favorite</i> Sobre</a></li>
     <li><a href="#" id="btn_share"><i class="material-icons left">share</i> Compartilhar</a></li>
     <li><a href="https://github.com/paulhenrique/phyQuizz"><i class="material-icons left">code</i> Ver o
-            código</a>
+        código</a>
     </li>
     <li><a href="https://github.com/paulhenrique/phyQuizz"><i class="material-icons left">add_to_home_screen</i>
-            Adicionar a tela inicial</a></li>
-</ul>
-  <div class="section">
-    <div class="container">
+        Adicionar a tela inicial</a></li>
+  </ul>
+  <div class="section hide-on-med-and-up">
+    <div class="center">
       <br><br>
-      <h1 class="header center purple-text text-darken-4">phyQuizz</h1>
-      <div class="row center">
+      <h1 class="header purple-text text-darken-4">phyQuizz</h1>
+      <div class="row">
         <h5 class="header col s12 light">Responda perguntas e se prepare para os vestibulares mais difíceis do país!
         </h5>
       </div>
@@ -68,11 +69,56 @@
 
     </div>
   </div>
+  <div class="hide-on-small-only yellow">
+    <div class="section container" id="">
+      <br><br>
+      <center>
+        <h1><span>phyQuizz</span></h1>
+        <p class="flow-text">Estude onde, quando e como quiser</p>
+      </center>
+      <br><br>
+    </div>
+    <div class="section grey darken-4 white-text">
+      <div class="container">
+        <br><br>
+        <h3><span class="yellow grey-text text-darken-4">O que é?</span></h3>
+        <p class="flow-text">O phyQuizz é um jogo de perguntas e respostas <i>OpenSource</i>, ou seja, seu código está
+          disponível para acesso a qualquer momento e por qualquer pessoa!
+        </p>
+        <br><br>
+        <div class="right-align">
+          <h3><span class="yellow grey-text text-darken-4">Qual a finalidade disso?</span></h3>
+          <p class="flow-text justify-align">Apesar do phyQuizz ter sido pensado com perguntas de Física e Matemática,
+            ele pode ser replicado através do <a href="">Github</a> e ser adaptado para qualquer tipo de pergunta, é bem
+            simples!</p>
+        </div>
+        <br><br><br>
+        <h3><span class="yellow grey-text text-darken-4">Como funciona?</span></h3>
+        <p class="flow-text">É bem simples! Todas as perguntas são baseadas nos vestibulares mais concorridos do Brasil!
+          Você acessa do seu celular, inicia um novo jogo e pronto!
+        </p>
+        <br><br>
+      </div>
+    </div>
+    <div class="section purple">
+      <br><br><br>
+      <h3 class="center"><span class="grey darken-4 purple-text">Como isso surgiu?</span></h3>
+      <div class="container justify-align">
+        <br>
+        <p class="flow-text">Este aplicativo surgiu no <a href="http://itp.ifsp.edu.br" class="grey darken-4 "
+            target="_blank">IFSP Campus Itapetininga</a> com o intuito de criação de uma ferramenta para utilização
+          dentro ou fora de sala de aula para ensino e prática de Matemática</p>
+        <br><br><br><br>
+      </div>
+        <p class=" center"><a href="https://paulhenrique.github.io/ph" target="_blank" class="black-text">paulhenrique</a></p>
+
+    </div>
+  </div>
 </body>
 <!-- Compiled and minified JavaScript -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <!-- <script src="webroot/js/questionario.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="sw.js"></script>
 <script src="install.js"></script>
 <script>
@@ -83,5 +129,7 @@
     console.log('click');
     q.apagar_jogo();
   });
+  $('.parallax').parallax();
 </script>
+
 </html>
