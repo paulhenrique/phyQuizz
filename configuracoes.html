@@ -6,11 +6,10 @@
     <!-- Compiled and minified CSS -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <meta name="mobile-web-app-capable" content="yes">
 
     <meta name="mobile-web-app-capable" content="yes">
     <link rel="icon" sizes="200x200" href="webroot/img/icon.png">
-    <meta name="theme-color" content="rgb(74, 20, 140)">
+    <meta name="theme-color" content="#4a148c">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="webroot/css/main.css">
@@ -22,7 +21,6 @@
     <div class="navbar-fixed">
         <nav class="purple darken-4">
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo">Resultado</a>
                 <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             </div>
         </nav>
@@ -53,56 +51,42 @@
         <li><a href="https://github.com/paulhenrique/phyQuizz"><i class="material-icons left">add_to_home_screen</i>
                 Adicionar a tela inicial</a></li>
     </ul>
-    <div class="section no-pad-bot">
+    <div class="section no-pad-bot" id="index-banner">
         <div class="container">
+            <br><br>
             <div class="row center">
-                <div>
-                    <br> <br>
-                    <img src="webroot/img/medal.png" width="90" alt="">
-                    <br> <br>
-                    <h3>Você finalizou o jogo!</h3>
-                    <p>Você alcançou um total de <span id="acertos">0</span> acertos</p>
+                <h3 class="header col s12 light"><b>Preencha com seus dados!</b></h3>
+                <small>(Não se preocupe eles não serão
+                    divulgados)</small>
+                <br><br>
+            </div>
+            <div class="row center">
+                <div class="input-field">
+                    <input placeholder="Saitama" id="user_name" type="text" class="validate" val="">
+                    <label for="user_name">Seu nome</label>
+                    <small class="grey-text">Digite como preferir, use um nickname ou seu próprio nome</small>
                 </div>
             </div>
-            <div class="row" id="respostas">
-
+            <div class="row center">
+                <a href="game.html" id="btn_start_game"
+                    class="btn-large waves-effect waves-light purple darken-4 disabled"><i
+                        class="material-icons left">arrow_right</i>Salvar</a>
             </div>
+            <br><br>
         </div>
     </div>
 </body>
 <!-- Compiled and minified JavaScript -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="webroot/js/questionario.js"></script>
+<script src="webroot/js/formularios.js"></script>
 <script src="sw.js"></script>
 <script src="install.js"></script>
+<script src="webroot/js/share.js"></script>
 <script>
     $('.sidenav').sidenav();
-    q = new Questionario;
-    document.getElementById("acertos").innerHTML = String(q.quantidade_de_acertos);
-    $.each(q.acertos, function (i, c) {
-        let div = $("<div>");
-        let h1 = $("<h5>");
-        let numero_questao = parseInt(i) + 1;
-        let resposta_correta_string = String(q.questoes[i].correta);
-        let p = $("<p>").addClass('resposta-text');
-        let cor = (c == 0) ? "red" : "green";
-        let status = (c == 0) ? "Você errou" : "Você acertou";
-        let span = $("<span>").addClass(String(cor) + "-text");
-        let resposta_correta = $("<p>");
-
-        p.append(q.questoes[i].questao);
-        resposta_correta.append("A resposta correta era: ");
-        resposta_correta.append(resposta_correta_string);
-        h1.append("Questão " + numero_questao);
-        span.append(" - " + String(status));
-        h1.append(span);
-        div.append(h1);
-        div.append(p);
-        div.append(resposta_correta);
-
-        $('#respostas').append(div);
-    });
+    var f = new formularios();
+    f.init();
 </script>
 
 </html>
